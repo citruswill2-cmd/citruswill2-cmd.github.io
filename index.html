@@ -1,62 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>I make websites</title>
-  <meta name="theme-color" content="#0C0B0A" />
-  <style>
-    * { box-sizing: border-box; margin: 0; }
-    body { background: #0C0B0A; color: #F4F0E8; font: 16px/1.4 system-ui, sans-serif; }
-    main { max-width: 22rem; margin: 0 auto; padding: 2.5rem 1.25rem; }
-    .star { color: #FF4D12; font-size: 1.25rem; }
-    h1 { margin: .75rem 0 .25rem; font-size: 1.6rem; }
-    p { color: #8A8378; margin-bottom: 1.5rem; }
-    label { display: block; margin: 0 0 .9rem; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: #8A8378; }
-    input, textarea, select, button { width: 100%; margin-top: .35rem; padding: .8rem .75rem; border: 1px solid #2A2724; border-radius: 8px; background: #161412; color: #F4F0E8; font: inherit; }
-    textarea { min-height: 5rem; resize: vertical; }
-    button { background: #FF4D12; color: #0C0B0A; font-weight: 600; border: 0; margin-top: .5rem; cursor: pointer; }
-    #done { display: none; }
-    #out { margin-top: 1rem; padding: .75rem; border: 1px solid #2A2724; background: #161412; font: 12px/1.4 ui-monospace, monospace; white-space: pre-wrap; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sameweek — custom websites, shipped fast</title>
+<meta name="description" content="Tell me what the site should do. I build it how you want it and get it live in no time." />
+<meta name="theme-color" content="#F3F1EB" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: { paper:"#F3F1EB", ink:"#111110", mute:"#6A675E", line:"#D7D2C8", card:"#FFFCF7", signal:"#E23B2F" }, fontFamily: { display:["Fraunces","Georgia","serif"], sans:["Manrope","system-ui","sans-serif"] } } } };
+</script>
+<style>html{scroll-behavior:smooth}body{background:#F3F1EB;color:#111110}.rule{height:1px;background:#D7D2C8}</style>
 </head>
-<body>
-  <main>
-    <div class="star">*</div>
-    <h1>I make websites</h1>
-    <p>Say what you want. I build it.</p>
-    <form id="f">
-      <label>Name <input required name="name" /></label>
-      <label>Email <input required type="email" name="email" /></label>
-      <label>What the site should do <textarea required name="wants" placeholder="Get calls. Sell stuff. Show work."></textarea></label>
-      <label>Money
-        <select name="budget">
-          <option value="idk">idk</option>
-          <option>cheap</option>
-          <option>normal</option>
-          <option>a lot</option>
-        </select>
-      </label>
-      <button>Send</button>
-    </form>
-    <section id="done">
-      <h1>Got it</h1>
-      <p>I’ll hit you if I want the job.</p>
-      <pre id="out"></pre>
-    </section>
-  </main>
-  <script>
-    const MAIL = "citruswill2@gmail.com";
-    const f = document.getElementById("f");
-    f.onsubmit = (e) => {
-      e.preventDefault();
-      const d = Object.fromEntries(new FormData(f));
-      const text = "NAME: " + d.name + "\nEMAIL: " + d.email + "\nWANTS: " + d.wants + "\nMONEY: " + d.budget;
-      f.style.display = "none";
-      document.getElementById("done").style.display = "block";
-      document.getElementById("out").textContent = text;
-      location.href = "mailto:" + MAIL + "?subject=site&body=" + encodeURIComponent(text);
-    };
-  </script>
-</body>
-</html>
+<body class="font-sans antialiased">
+<header class="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
+<div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">
+<a href="#top" class="flex items-center gap-2"><span class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-ink text-[11px] font-bold text-paper">Sw</span><span class="text-sm font-semibold">Sameweek</span></a>
+<nav class="hidden sm:flex items-center gap-7 text-sm text-mute"><a class="hover:text-ink" href="#work">Work</a><a class="hover:text-ink" href="#process">Process</a><a class="hover:text-ink" href="#start">Start</a></nav>
+<a href="#start" class="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper hover:bg-signal transition-colors">Start a brief</a>
+</div></header>
+<main id="top">
+<section class="px-5 pt-16 pb-20 sm:pt-24 sm:pb-28"><div class="mx-auto max-w-5xl">
+<p class="hero-kicker text-xs font-semibold uppercase tracking-[0.22em] text-signal">Independent website studio</p>
+<h1 class="hero-title mt-5 max-w-3xl font-display text-5xl sm:text-7xl font-semibold leading-[1.05] tracking-tight">Websites however you want them. <span class="italic text-mute">Done in no time.</span></h1>
+<p class="hero-copy mt-7 max-w-xl text-lg leading-relaxed text-mute">You describe the job. I design and build the site. No agency layers, no six-week discovery — a custom site that looks like you and ships while the idea is still hot.</p>
+<div class="hero-cta mt-10 flex flex-wrap gap-3">
+<a href="#start" class="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper hover:bg-signal transition-colors">Tell me what you need</a>
+<a href="#work" class="rounded-full border border-line px-6 py-3 text-sm font-semibold hover:border-ink transition-colors">See a live site</a>
+</div></div></section>
+<div class="rule mx-auto max-w-5xl"></div>
+<section class="px-5 py-14"><div class="mx-auto grid max-w-5xl gap-10 sm:grid-cols-3">
+<div class="stat"><p class="font-display text-2xl">To spec</p><p class="mt-2 text-sm text-mute">Built around what the site has to do — calls, sales, bookings, a body of work — not a leftover template.</p></div>
+<div class="stat"><p class="font-display text-2xl">This week energy</p><p class="mt-2 text-sm text-mute">Tight scope, fast drafts, real launch dates. Most sites are live in days, not a quarter.</p></div>
+<div class="stat"><p class="font-display text-2xl">You own it</p><p class="mt-2 text-sm text-mute">Files, domain, hosting handoff. No platform hostage fee for a page that should just exist.</p></div>
+</div></section>
+<div class="rule mx-auto max-w-5xl"></div>
+<section id="work" class="px-5 py-20"><div class="mx-auto max-w-5xl">
+<p class="text-xs font-semibold uppercase tracking-[0.22em] text-signal">Work</p>
+<h2 class="mt-3 font-display text-4xl tracking-tight">Already out in the world.</h2>
+<div class="mt-10 grid gap-5 md:grid-cols-2">
+<a href="https://iris-onyx.vercel.app" target="_blank" rel="noopener" class="group rounded-2xl border border-line bg-card p-8 hover:border-ink transition-colors">
+<p class="text-xs uppercase tracking-[0.18em] text-mute">Artist site</p>
+<h3 class="mt-3 font-display text-3xl">Iris Onyx</h3>
+<p class="mt-3 text-mute">Listen, shows, art. A dark, fast presence for a working musician — built to feel right on a phone.</p>
+<p class="mt-6 text-sm font-semibold group-hover:text-signal">iris-onyx.vercel.app →</p></a>
+<div class="rounded-2xl border border-dashed border-line p-8">
+<p class="text-xs uppercase tracking-[0.18em] text-mute">Open slot</p>
+<h3 class="mt-3 font-display text-3xl">Your site next</h3>
+<p class="mt-3 text-mute">Landing page, shop, portfolio, booking flow, or the odd thing no template covers.</p>
+<a href="#start" class="mt-6 inline-block text-sm font-semibold hover:text-signal">Send a brief →</a>
+</div></div></div></section>
+<section id="process" class="border-y border-line bg-card px-5 py-20"><div class="mx-auto max-w-5xl">
+<p class="text-xs font-semibold uppercase tracking-[0.22em] text-signal">Process</p>
+<h2 class="mt-3 max-w-xl font-display text-4xl tracking-tight">Three moves. Then it’s live.</h2>
+<ol class="mt-12 grid gap-5 md:grid-cols-3">
+<li class="rounded-2xl border border-line bg-paper p-6"><p class="text-xs font-semibold uppercase tracking-[0.16em] text-signal">01</p><h3 class="mt-3 text-xl font-semibold">You say what it has to do</h3><p class="mt-2 text-sm text-mute">Goal, references, budget range. A paragraph is enough.</p></li>
+<li class="rounded-2xl border border-line bg-paper p-6"><p class="text-xs font-semibold uppercase tracking-[0.16em] text-signal">02</p><h3 class="mt-3 text-xl font-semibold">I design and build</h3><p class="mt-2 text-sm text-mute">One maker. Tailwind, light motion, loads in a blink. You review once or twice.</p></li>
+<li class="rounded-2xl border border-line bg-paper p-6"><p class="text-xs font-semibold uppercase tracking-[0.16em] text-signal">03</p><h3 class="mt-3 text-xl font-semibold">It ships</h3><p class="mt-2 text-sm text-mute">Domain, host, handoff. You own the thing.</p></li>
+</ol></div></section>
+<section class="px-5 py-20"><div class="mx-auto max-w-5xl">
+<p class="text-xs font-semibold uppercase tracking-[0.22em] text-signal">What I take on</p>
+<h2 class="mt-3 font-display text-4xl tracking-tight">If you can name it, it can ship.</h2>
+<ul class="mt-10 grid gap-4 sm:grid-cols-2">
+<li class="rounded-xl border border-line p-5"><h3 class="font-semibold">Landing pages</h3><p class="mt-1 text-sm text-mute">One job, one page, built to convert.</p></li>
+<li class="rounded-xl border border-line p-5"><h3 class="font-semibold">Artist and personal sites</h3><p class="mt-1 text-sm text-mute">Music, portfolio, a presence that looks expensive.</p></li>
+<li class="rounded-xl border border-line p-5"><h3 class="font-semibold">Small shops</h3><p class="mt-1 text-sm text-mute">Sell a product without a bloated platform.</p></li>
+<li class="rounded-xl border border-line p-5"><h3 class="font-semibold">The weird one-off</h3><p class="mt-1 text-sm text-mute">The thing templates are not built for.</p></li>
+</ul></div></section>
+<section id="start" class="border-t border-line px-5 py-20"><div class="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
+<div>
+<p class="text-xs font-semibold uppercase tracking-[0.22em] text-signal">Start</p>
+<h2 class="mt-3 font-display text-4xl sm:text-5xl tracking-tight">Say what you want. I’ll build it.</h2>
+<p class="mt-5 max-w-md text-mute">Takes a minute. I’ll write back if the job is a fit. Direct: <a class="text-ink underline decoration-line underline-offset-4 hover:text-signal" href="mailto:citruswill2@gmail.com">citruswill2@gmail.com</a></p>
+</div>
+<form id="f" class="rounded-2xl border border-line bg-card p-6 sm:p-8">
+<label class="block text-[11px] font-semibold uppercase tracking-[0.16em] text-mute">Name<input required name="name" class="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-3 outline-none focus:border-ink" /></label>
+<label class="mt-4 block text-[11px] font-semibold uppercase tracking-[0.16em] text-mute">Email<input required type="email" name="email" class="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-3 outline-none focus:border-ink" /></label>
+<label class="mt-4 block text-[11px] font-semibold uppercase tracking-[0.16em] text-mute">What the site should do<textarea required name="wants" placeholder="Get calls. Sell a product. Show the work." class="mt-2 min-h-[7rem] w-full resize-y rounded-lg border border-line bg-paper px-3 py-3 outline-none focus:border-ink"></textarea></label>
+<label class="mt-4 block text-[11px] font-semibold uppercase tracking-[0.16em] text-mute">Budget<select name="budget" class="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-3 outline-none focus:border-ink"><option value="not sure">not sure yet</option><option>lean</option><option>standard</option><option>do it right</option></select></label>
+<button type="submit" class="mt-6 w-full rounded-full bg-ink py-3 text-sm font-semibold text-paper hover:bg-signal transition-colors">Send brief</button>
+</form>
+<section id="done" class="hidden rounded-2xl border border-line bg-card p-8">
+<p class="text-xs font-semibold uppercase tracking-[0.22em] text-signal">Sent</p>
+<h2 class="mt-3 font-display text-3xl">Got it.</h2>
+<p class="mt-2 text-mute">I’ll hit you if I want the job.</p>
+<pre id="out" class="mt-6 overflow-x-auto rounded-lg border border-line bg-paper p-4 font-mono text-xs"></pre>
+</section>
+</div></section>
+</main>
+<footer class="border-t border-line px-5 py-8"><div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 text-sm text-mute"><p class="font-semibold text-ink">Sameweek</p><p>Custom sites. Shipped fast.</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script>
+const MAIL = "citruswill2@gmail.com";
+const f = document.getElementById("f");
+const done = document.getElementById("done");
+f.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(f));
+  const text = "NAME: " + d.name + "\nEMAIL: " + d.email + "\nWANTS: " + d.wants + "\nMONEY: " + d.budget;
+  f.classList.add("hidden");
+  done.classList.remove("hidden");
+  document.getElementById("out").textContent = text;
+  location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent("Sameweek brief") + "&body=" + encodeURIComponent(text);
+});
+anime({ targets: ".hero-kicker, .hero-title, .hero-copy, .hero-cta", opacity: [0, 1], translateY: [16, 0], delay: anime.stagger(80), duration: 640, easing: "easeOutCubic" });
+anime({ targets: ".stat", opacity: [0, 1], translateY: [10, 0], delay: anime.stagger(70, { start: 280 }), duration: 540, easing: "easeOutCubic" });
+</script>
+</body></html>
